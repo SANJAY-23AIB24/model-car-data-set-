@@ -6,7 +6,7 @@ import joblib
 
 
 # Load the trained model
-model = joblib.load('car_price_predictor')
+model = joblib.load('xgb_model.bin')
 
 # Function to predict car selling price
 def predict_price(year, present_price, kms_driven, fuel_type, seller_type, transmission, owner):

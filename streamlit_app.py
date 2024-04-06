@@ -6,7 +6,7 @@ import joblib
 
 
 # Load the trained model
-model = joblib.load('your_model_file.joblib')
+model = joblib.load('car_price_predictor')
 
 # Function to predict car selling price
 def predict_price(year, present_price, kms_driven, fuel_type, seller_type, transmission, owner):

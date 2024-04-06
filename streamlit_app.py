@@ -1,6 +1,9 @@
 import streamlit as st
-import joblib
 import pandas as pd
+import numpy as np
+from xgboost import XGBRegressor as xgb
+import joblib
+
 
 # Load the trained model
 model = joblib.load('your_model_file.joblib')

@@ -15,10 +15,10 @@ def preprocess_input(car_data):
     car_data['Transmission'] = car_data['Transmission'].map(transmission_mapping)
 
     car_data['Age'] = 2024 - car_data['Year']
-    car_data.drop(['Year'], axis=1, inplace=True)
+   # car_data.drop(['Year'], axis=1, inplace=True)
 
     # Ensure correct column order
-    car_data = car_data[['Present_Price', 'Kms_Driven', 'Fuel_Type', 'Seller_Type', 'Transmission', 'Owner', 'Age']]
+    car_data = car_data[['Year','Present_Price', 'Kms_Driven', 'Fuel_Type', 'Seller_Type', 'Transmission', 'Owner', 'Age']]
     
     # Ensure all columns are float type
     car_data = car_data.astype(float)
@@ -29,8 +29,8 @@ def preprocess_input(car_data):
 # Function to predict selling price
 def predict_selling_price(car_data):
     car_data = preprocess_input(car_data)
-    dmatrix = xgb.DMatrix(car_data)
-    prediction = model.predict(dmatrix)
+    #dmatrix = xgb.DMatrix(car_data)
+    prediction = model.predict(car_data)
     return prediction[0]
 
 
